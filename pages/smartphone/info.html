@@ -1,0 +1,17 @@
+<div data-role="page" id="info" class="ui-page" data-theme="a">
+ 	<div data-role="main" class="ui-content">		
+		{{ clock.digiclock('clock') }}
+		<div class="center">
+			{{ now|date('l') }}, {{ now|date('d.m.Y') }}
+		</div>
+		<hr>
+		{% import "weather.html" as weather %}
+		{{ weather.current('weather') }}
+		<hr>
+		{{ weather.forecastweek('weather_forecast') }}
+		<hr>
+		{{ phone.missedlist('phonelist', 'Telefonliste', 3) }}	
+		<hr>
+	    {{ calendar.list('calendarlist', 'Kalender', 7) }}
+    </div>
+</div>

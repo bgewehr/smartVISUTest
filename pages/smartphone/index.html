@@ -1,0 +1,36 @@
+/**
+* -----------------------------------------------------------------------------
+* @package     smartVISU
+* @author      Martin Gleiß
+* @copyright   2012
+* @license     GPL [http://www.gnu.de]
+* -----------------------------------------------------------------------------
+*/
+
+
+{% extends "base.html"%}
+{% block body %}
+
+/** load all necessaary widgets */
+{% import "basic.html" as basic %}
+{% import "icon.html" as icon %}
+{% import "widget_fritzbox_list.html" as fritzbox %}
+{% import "widget_auth_switch.html" as key %}
+{% import "phone.html" as phone %}
+{% import "calendar.html" as calendar %}
+{% import "clock.html" as clock %}
+{% import "widget_list.html" as list %}
+{% import "basic2.html" as basic2 %}
+{% import "multimedia.html" as multimedia %}		
+
+/** include all pages */		
+{% include "app.html" %}
+{% set page = 'info' %}
+{% include "info.html" %}
+{% for file in dir('pages/'~config_pages, '^(room_.*)') %}
+		{% include file.name %}
+{% endfor %}
+{% include "Fritzbox.html" %}
+{% include "config.html" %}
+
+{% endblock %}
